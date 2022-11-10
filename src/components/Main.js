@@ -165,7 +165,7 @@ const Main = () => {
                     <p>rlaqja9199@naver.com</p>
                 </li>
                 <li  onClick={()=>window.open('https://velog.io/@rlaqja9199', '_blank')} style={{cursor:'pointer', background:'#eaeaea'}}>
-                    <div style={{background:'#20C997', color:'#fff', borderRadius:'8px'}}>Velog</div>
+                    <div><img src='/images/velog.png' alt='벨로그로고' style={{width:'100%', borderRadius:'8px'}} /></div>
                     <h4>Velog</h4>
                     <p>https://velog.io/@rlaqja9199</p>
                 </li>

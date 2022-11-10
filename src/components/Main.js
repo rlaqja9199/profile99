@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { SiHtml5, SiCss3, SiJavascript, SiPhp, SiReact, SiRedux, SiNodedotjs, SiGithub  } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
+import { ImMobile } from "react-icons/im";
+import { MdOutlineEmail } from "react-icons/md";
 
 const Main = () => {
-    const [moveState, setMoveState] = useState(0);
+    const [moveState, setMoveState] = useState(1);
     const [location, setLocation] = useState(0);
     useEffect(()=>{
         const wheelHandler = (e)=>{
             e.preventDefault();
-            console.log(e.deltaY);
-            console.log(location)
+            setMoveState(0);
             if(e.deltaY>0 && moveState === 0){
-                if(location>-300){
+                if(location>-300 && moveState === 0){
                     setLocation((current)=> current-100);
                     setMoveState(1);
                     setTimeout(() => {
@@ -19,7 +20,7 @@ const Main = () => {
                     }, 700);
                 }
             }else if(e.deltaY<0 && moveState === 0){
-                if(location<0){
+                if(location<0 && moveState === 0){
                     setLocation((current)=>current+100);
                     setMoveState(1);
                     setTimeout(() => {
@@ -59,7 +60,7 @@ const Main = () => {
                     <h3>BARON 테일러샵</h3>
                     <img src='/images/baron1.png' alt='바론 홈페이지 사진' />
                     <p className='language'>사용언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
-                    <p>설명: 기존의 테일러샵 홈페이지들의 촌스러운 디자인을 역동적이고 고급스럽게 디자인 해보았습니다. </p>
+                    <p>설명: 기존의 테일러샵 홈페이지들의 촌스러운 디자인을 동적이고 고급스럽게 디자인 해보았습니다. </p>
                     <p>작업인원: 1명</p>
                     <p>관리자계정: admin / 1234</p>
                     <div className='linkUrl' onClick={()=>window.open('https://tailorshop-9t22.vercel.app/', '_blank')}>바로가기</div>
@@ -147,11 +148,33 @@ const Main = () => {
 
         </div>
         <div id='contact'>
-            <div className='inner'>
-                <h2>CONTACT</h2>
-
-            </div>
-
+            <h2>CONTACT</h2>
+            <ul>
+                <li style={{background:'#eaeaea'}}>
+                    <div style={{fontSize:'50px'}}>
+                        <ImMobile />
+                    </div>
+                    <h4>Mobile</h4>
+                    <p>010-2428-5429</p>
+                </li>
+                <li style={{background:'#555', color:'#eee'}}>
+                    <div style={{fontSize:'50px'}}>
+                        <MdOutlineEmail />
+                    </div>
+                    <h4>E-Mail</h4>
+                    <p>rlaqja9199@naver.com</p>
+                </li>
+                <li  onClick={()=>window.open('https://velog.io/@rlaqja9199', '_blank')} style={{cursor:'pointer', background:'#eaeaea'}}>
+                    <div style={{background:'#20C997', color:'#fff', borderRadius:'8px'}}>Velog</div>
+                    <h4>Velog</h4>
+                    <p>https://velog.io/@rlaqja9199</p>
+                </li>
+                <li  onClick={()=>window.open('https://github.com/rlaqja9199', '_blank')} style={{cursor:'pointer', background:'#4f6466', color:'#eee'}}>
+                    <div style={{fontSize:'50px'}}><SiGithub /></div>
+                    <h4>Github</h4>
+                    <p>https://github.com/rlaqja9199</p>
+                </li>
+            </ul>
         </div>
     </div>
   )

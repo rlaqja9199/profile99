@@ -1,0 +1,217 @@
+/* 폰트 */
+h2{
+    font-family: 'Libre Caslon Display';
+  }
+p{
+    font-family: 'Sunflower';
+}
+
+
+
+
+/* 헤더 */
+#header{
+    width: 100%;
+    height: 65px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 10;
+}
+#header #headerWrap{
+    width: 100%;
+    height: 65px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#header h1{
+    width: 20%;
+    margin-right: 40%;
+    text-align: start;
+    font-size: 28px;
+    font-weight: 600;
+    color: #0f403f;
+    text-shadow: 1px 1px 3px #444;
+    cursor: pointer;
+    font-family: 'Calligraffitti', cursive;
+}
+#header ul{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #0f403f;
+    /* text-shadow: 1px 1px 1px #666; */
+    cursor: pointer;
+    font-family: 'Libre Caslon Display';
+}
+
+
+
+
+/* 메인 */
+#main{
+    width: 100%;
+    transition: 0.8s;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+h2{
+    font-size: 28px;
+    font-weight: 600;
+    padding-bottom: 60px;
+    text-decoration: underline;
+    padding-top: 120px;
+}
+
+
+/* 소개 */
+#introduction{
+    width: 100%;
+    height: 100vh;
+    background: #D6C8BB;
+    /* background: #0f403f; */
+}
+#introduction #introductionWrap{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#introductionWrap #introductionLeft{
+    width: 45%;
+    padding-top: 100px;
+}
+#introductionWrap #introductionLeft h3{
+    font-size: 24px;
+    padding: 30px 0;
+    font-weight: 600;
+}
+#introductionWrap #introductionLeft img{
+    width: 50%;
+    border-radius: 50%;
+}
+#introductionWrap #introductionLeft p{
+    font-size: 18px;
+    line-height: 1.4;
+}
+#introductionWrap #introductionLeft p span{
+    font-size: 20px;
+    font-weight: 600;
+}
+#introductionWrap #introductionRight{
+    width: 55%;
+    padding-top: 100px;
+    text-align: start;
+}
+#introductionWrap #introductionRight h3{
+    font-size: 24px;
+    padding-bottom: 30px;
+}
+
+
+/* 포트폴리오 */
+#portfolio{
+    width: 100%;
+    height: 100vh;
+    background: #0f403f;
+    color: #f2edeb;
+}
+#portfolio ul{
+    display: flex;
+    justify-content: space-around;
+    /* justify-content: center; */
+    /* flex-wrap: wrap; */
+}
+#portfolio ul li {
+    width: 22%;
+    height: 60vh;
+    border: 1px solid #f2edeb;
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background: #f2edeb; */
+}
+#portfolio ul li h3{
+    font-size: 24px;
+}
+#portfolio ul li img{
+    width: 100%;
+}
+#portfolio ul li .language span{
+    border: 1px solid #f2edeb;
+    margin: 0 4px;
+    padding: 2px;
+}
+#portfolio ul li p{
+    word-break: keep-all;
+    line-height: 1.2;
+}
+#portfolio ul li .linkUrl{
+    cursor: pointer;
+    width: inherit;
+    margin: 0 auto;
+    text-decoration: underline;
+}
+#portfolio ul li .linkUrl:hover{
+    color: gray;
+    transition: 0.3s;
+}
+
+
+/* 기술 */
+#skills{
+    width: 100%;
+    height: 100vh;
+    background: #570a0a;
+}
+#skills h2{
+    color: #f2edeb;
+}
+#skills #skillsList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#skills #skillsList li {
+    width: 30%;
+    height: 23vh;
+    font-size: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 2vh;
+    border-radius: 28px;
+    transition: 0.5s;
+    
+}
+#skills #skillsList li:hover{
+    transform: scale(1.08);
+    transition: 0.3s;
+}
+#skills #skillsList li h3{
+    font-size: 30px;
+    font-weight: 500;
+    
+}
+#skills #skillsList li p{
+    font-size: 18px;
+    padding-bottom: 8px;
+}
+
+
+/* 컨택트 */
+#contact{
+    width: 100%;
+    height: 100vh;
+    background: #F9F5E5;
+}
+#contact h2{
+    color: #968574;
+}
+
+

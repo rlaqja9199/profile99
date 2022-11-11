@@ -244,6 +244,22 @@ h2{
     transition: 0.3s;
     cursor: default;
 }
+#contact ul li:nth-child(1){
+    background: #eaeaea;
+}
+#contact ul li:nth-child(2){
+    background: #655;
+    color: #eee;
+}
+#contact ul li:nth-child(3){
+    background: #eaeaea;
+    cursor: pointer;
+}
+#contact ul li:nth-child(4){
+    color: #eee;
+    background: #4f6466;
+    cursor: pointer;
+}
 #contact ul li:hover{
     transform: translateY(-20%);
     transition: 0.3s;
@@ -381,6 +397,23 @@ address{
     }
     #contact ul li p{
         font-size: 14px;
+    }
+    #contact ul li:nth-child(1){
+        background: #eaeaea;
+    }
+    #contact ul li:nth-child(2){
+        background: #655;
+        color: #eee;
+    }
+    #contact ul li:nth-child(3){
+        color: #eee;
+        background: #4f6466;
+        cursor: pointer;
+    }
+    #contact ul li:nth-child(4){
+        background: #eaeaea;
+        cursor: pointer;
+        color: #000;
     }
 
 }

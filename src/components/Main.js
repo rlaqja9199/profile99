@@ -44,7 +44,7 @@ const Main = () => {
                 <h2>INTRODUCTION</h2>
                 <div id='introductionWrap'>
                     <div id='introductionLeft'>
-                        <img src='/images/beom.jpg' alt='범9199의 이미지' />
+                        <img src='https://rlaqja9199.github.io/profile99/images/beom.jpg' alt='범9199의 이미지' />
                         <h3>Beom9199</h3>
                         <p>사용자의 즐거움을 추구하는</p>
                         <p><span> 프론트엔드 개발자 김범</span>입니다. </p>
@@ -72,7 +72,7 @@ const Main = () => {
             <ul>
                 <li>
                     <h3>BARON 테일러샵</h3>
-                    <img src='/images/baron1.png' alt='바론 홈페이지 사진' />
+                    <img src='https://rlaqja9199.github.io/profile99/images/baron1.png' alt='바론 홈페이지 사진' />
                     <p className='language'>사용언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
                     <p>설명: 기존의 테일러샵 홈페이지들의 촌스러운 디자인을 동적이고 고급스럽게 디자인 해보았습니다. </p>
                     <p>작업인원: 1명</p>
@@ -81,7 +81,7 @@ const Main = () => {
                 </li>
                 <li>
                     <h3>REHOME 가구</h3>
-                    <img src='/images/rehome.png' alt='리홈 홈페이지 사진' />
+                    <img src='https://rlaqja9199.github.io/profile99/images/rehome.png' alt='리홈 홈페이지 사진' />
                     <p className='language'>사용언어: <span>PHP</span><span>JavaScript</span><span>Css</span><span>MySQL</span> </p>
                     <p>설명: 보기쉽고 직관적인 디자인의 가구샵 홈페이지를 만들어보았습니다. </p>
                     <p>작업인원: 3명</p>
@@ -90,7 +90,7 @@ const Main = () => {
                 </li>
                 <li>
                     <h3>W WEDDING 드레스샵</h3>
-                    <img src='/images/wwedding.png' alt='w웨딩 홈페이지 사진' />
+                    <img src='https://rlaqja9199.github.io/profile99/images/wwedding.png' alt='w웨딩 홈페이지 사진' />
                     <p className='language'>사용언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
                     <p>설명: 외국사이트들의 디자인을 참고하여 드레스샵 홈페이지를 만들어보았습니다. </p>
                     <p>작업인원: 2명</p>
@@ -99,7 +99,7 @@ const Main = () => {
                 </li>
                 <li>
                     <h3>썸네일메이커</h3>
-                    <img src='/images/thumbnailmaker.png' alt='썸네일메이커 홈페이지 사진' />
+                    <img src='https://rlaqja9199.github.io/profile99/images/thumbnailmaker.png' alt='썸네일메이커 홈페이지 사진' />
                     <p className='language'>사용언어: <span>React</span><span>Css</span></p>
                     <p>설명: 다른 개발자의 썸네일메이커를 리액트를 사용하여 클론해보았습니다. </p>
                     <p>작업인원: 1명</p>
@@ -164,26 +164,26 @@ const Main = () => {
         <div id='contact'>
             <h2>CONTACT</h2>
             <ul>
-                <li style={{background:'#eaeaea'}}>
+                <li>
                     <div style={{fontSize:'50px'}}>
                         <ImMobile />
                     </div>
                     <h4>Mobile</h4>
                     <p>010-2428-5429</p>
                 </li>
-                <li style={{background:'#655', color:'#eee'}}>
+                <li>
                     <div style={{fontSize:'50px'}}>
                         <MdOutlineEmail />
                     </div>
                     <h4>E-Mail</h4>
                     <p>rlaqja9199@naver.com</p>
                 </li>
-                <li  onClick={()=>window.open('https://velog.io/@rlaqja9199', '_blank')} style={{cursor:'pointer', background:'#eaeaea'}}>
-                    <div><img src='/images/velog.png' alt='벨로그로고' style={{width:'100%', borderRadius:'8px'}} /></div>
+                <li  onClick={()=>window.open('https://velog.io/@rlaqja9199', '_blank')}>
+                    <div><img src='https://rlaqja9199.github.io/profile99/images/velog.png' alt='벨로그로고' style={{width:'100%', borderRadius:'8px'}} /></div>
                     <h4>Velog</h4>
                     <p>https://velog.io/@rlaqja9199</p>
                 </li>
-                <li  onClick={()=>window.open('https://github.com/rlaqja9199', '_blank')} style={{cursor:'pointer', background:'#4f6466', color:'#eee'}}>
+                <li  onClick={()=>window.open('https://github.com/rlaqja9199', '_blank')}>
                     <div style={{fontSize:'50px'}}><SiGithub /></div>
                     <h4>Github</h4>
                     <p>https://github.com/rlaqja9199</p>

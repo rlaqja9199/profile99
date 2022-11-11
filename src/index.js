@@ -4,10 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+import { createStore } from 'redux';
+import {Provider} from 'react-redux';
+
+let initialState = {location: 0}
+function reducer(state = initialState, action){
+  if(action.type === 'INTRODUCTION'){
+    return {...state, location: state.location = 0 }
+  }else if(action.type === 'PORTFOLIO'){
+    return {...state, location: -100 }
+  }else if(action.type === 'SKILLS'){
+    return {...state, location: -200 }
+  }else if(action.type === 'CONTACT'){
+    return {...state, location: -300 }
+  }else if(action.type === 'PAGEUP'){
+    return {...state, location: state.location - 100}
+  }else if(action.type === 'PAGEDOWN'){
+    return {...state, location: state.location + 100}
+  }
+  return state;
+}
+const store = createStore(reducer, initialState);
+// console.log(initialState)
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

@@ -2,11 +2,13 @@
 
 body {
   margin: 0;
+  width: 100%;
   font-family: 'Sunflower', 'Libre Caslon Display', 'Calligraffitti', cursive, serif, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #000;
   overflow: hidden;
+  word-break: keep-all;
 }
 
 code {
@@ -17,4 +19,7 @@ code {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+html,body{
+  overflow-x: hidden;
 }

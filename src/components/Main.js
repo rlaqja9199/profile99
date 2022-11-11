@@ -1,37 +1,40 @@
 import React, { useEffect, useState } from 'react'
+import {useSelector, useDispatch} from 'react-redux';
 import { SiHtml5, SiCss3, SiJavascript, SiPhp, SiReact, SiRedux, SiNodedotjs, SiGithub  } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 import { ImMobile } from "react-icons/im";
 import { MdOutlineEmail } from "react-icons/md";
 
 const Main = () => {
-    const [moveState, setMoveState] = useState(1);
-    const [location, setLocation] = useState(0);
+    const location = useSelector((state)=>state.location);
+    const dispatch = useDispatch();
+    
     useEffect(()=>{
+        const mainDom = document.querySelector('#main');
+        const pageUp = ()=>{dispatch({type: 'PAGEUP'})}
+        const pageDown = ()=>{dispatch({type: 'PAGEDOWN'})}
+        let timer;
+
         const wheelHandler = (e)=>{
             e.preventDefault();
-            setMoveState(0);
-            if(e.deltaY>0 && moveState === 0){
-                if(location>-300 && moveState === 0){
-                    setLocation((current)=> current-100);
-                    setMoveState(1);
-                    setTimeout(() => {
-                        setMoveState(0);
-                    }, 700);
-                }
-            }else if(e.deltaY<0 && moveState === 0){
-                if(location<0 && moveState === 0){
-                    setLocation((current)=>current+100);
-                    setMoveState(1);
-                    setTimeout(() => {
-                        setMoveState(0);
-                    }, 700);
-                }
+            if(!timer){
+                timer = setTimeout(() => {
+                    timer = null;
+                    if(e.deltaY>0){
+                        if(location>-300){
+                            pageUp();
+                        }
+                    }else if(e.deltaY<0){
+                        if(location<0){
+                            pageDown();
+                        }
+                    }
+                }, 200);
             }
         };
-        window.addEventListener('wheel', wheelHandler);
+        mainDom.addEventListener('wheel', wheelHandler);
         return ()=>{
-            window.removeEventListener('wheel', wheelHandler);
+            mainDom.removeEventListener('wheel', wheelHandler);
         }
     })
   return (
@@ -47,8 +50,19 @@ const Main = () => {
                         <p><span> 프론트엔드 개발자 김범</span>입니다. </p>
                     </div>
                     <div id='introductionRight'>
-                        <h3>차분하고 긍정적인 김범입니다</h3>
-                        <p>안녕하세용!만나서반갑습니다 우리는배치기입니다 이게 선플라워라고? 구라즐</p>
+                        <h3>긍정의 에너지로 끝없이 도전하는 김범입니다.</h3>
+                        <p>
+                            요식업에서 오랜 시간 일을 해왔지만 적성에 맞지않아 고민하던 중 개인사정으로 일을 그만두고 
+                            어릴적부터 막연하게 가지고 있던 개발자의 꿈을 국비지원 사업을 통해 도전할 수 있었습니다.
+                            적지않은 나이임에도 새로운 것에 도전할 수 있었던 것은 
+                            매사에 낙천적인 사고로 할 수 있다는 믿음이 있었기 때문입니다.<br/><br/>
+
+                            비록 다른 직종이지만 요식업과 영업직 외에 여러 직종에서 풍부한 사회경험으로 힘든 일에도 
+                            즐거운 마음으로 일하는 법을 배우고 사람들과 화합하는 법을 배웠습니다.
+                            이 배움을 통해 어떠한 일이라도 '나는 잘 해낼 수 있다'라는 믿음을 가지고 있습니다.<br/><br/>
+                            
+                            남들보다 늦게 시작한 만큼 개발이 저의 99%가 되도록 노력하는 주니어개발자가 되겠습니다.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -157,7 +171,7 @@ const Main = () => {
                     <h4>Mobile</h4>
                     <p>010-2428-5429</p>
                 </li>
-                <li style={{background:'#555', color:'#eee'}}>
+                <li style={{background:'#655', color:'#eee'}}>
                     <div style={{fontSize:'50px'}}>
                         <MdOutlineEmail />
                     </div>
@@ -175,6 +189,7 @@ const Main = () => {
                     <p>https://github.com/rlaqja9199</p>
                 </li>
             </ul>
+            <address>code by Beom9199</address>
         </div>
     </div>
   )

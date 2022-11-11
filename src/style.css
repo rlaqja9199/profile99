@@ -299,16 +299,21 @@ address{
 
 
 @media screen and (max-width: 768px){
+    html,body{
+        overflow-y: scroll;
+    }
     #header {
         width: 100vw;
     }
     #header h1{
         font-size: 20px;
-        margin-right: 14px;
+        margin-left: 10px;
+        margin-right: 10%;
     }
     #header ul {
         width: inherit;
-        font-size: 12px;
+        font-size: 14px;
+        margin-right: 10px;
     }
     #introduction #introductionWrap{
         flex-direction: column;

@@ -14,6 +14,7 @@ const Main = () => {
         const pageUp = ()=>{dispatch({type: 'PAGEUP'})}
         const pageDown = ()=>{dispatch({type: 'PAGEDOWN'})}
         let timer;
+        console.log(window.innerWidth)
 
         const wheelHandler = (e)=>{
             e.preventDefault();
@@ -32,7 +33,9 @@ const Main = () => {
                 }, 200);
             }
         };
-        mainDom.addEventListener('wheel', wheelHandler);
+        if(window.innerHeight>768){
+            mainDom.addEventListener('wheel', wheelHandler);
+        }
         return ()=>{
             mainDom.removeEventListener('wheel', wheelHandler);
         }

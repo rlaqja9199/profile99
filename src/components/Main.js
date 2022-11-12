@@ -47,24 +47,28 @@ const Main = () => {
                 <h2>INTRODUCTION</h2>
                 <div id='introductionWrap'>
                     <div id='introductionLeft'>
-                        <img src='https://rlaqja9199.github.io/profile99/images/beom.jpg' alt='범9199의 이미지' />
-                        <h3>Beom9199</h3>
-                        <p>사용자의 즐거움을 추구하는</p>
-                        <p><span> 프론트엔드 개발자 김범</span>입니다. </p>
+                            <img src='https://rlaqja9199.github.io/profile99/images/beom.jpg' alt='범9199의 이미지' />
+                        <div>
+                            <h3>Beom9199</h3>
+                            <p>사용자의 즐거움을 추구하는</p>
+                            <p><span> 프론트엔드 개발자 김범</span>입니다. </p>
+                        </div>
                     </div>
                     <div id='introductionRight'>
                         <h3>긍정의 에너지로 끝없이 도전하는 김범입니다.</h3>
                         <p>
-                            요식업에서 오랜 시간 일을 해왔지만 적성에 맞지않아 고민하던 중 개인사정으로 일을 그만두고 
-                            어릴적부터 막연하게 가지고 있던 개발자의 꿈을 국비지원 사업을 통해 도전할 수 있었습니다.
-                            적지않은 나이임에도 새로운 것에 도전할 수 있었던 것은 
-                            매사에 낙천적인 사고로 할 수 있다는 믿음이 있었기 때문입니다.<br/><br/>
+                            요식업계에서 오랜 시간 일을 해왔지만 반복된 작업으로 제자리에 머물러 있는 기분이었습니다.
+                            더 늦기전에 전문성을 가지고 발전할 수 있는 일을 찾아 공부해보자는 생각으로 고민하던 중
+                            어릴적부터 가지고 있던 개발자의 꿈을 국비 지원 사업을 통해 도전할 수 있었습니다.
+                            적지 않은 나이임에도 이직을 결심할 수 있었던 것은 매사를 긍정적인 가능성을 바라보는 힘과
+                            꼭 하고 싶었던 일이기에 시작이 어려울 뿐 과정은 힘들어도 이겨낼 수 있다는 믿음이 있었기에
+                            적지않은 나이임에도 개발자에 도전 할 수 있었습니다.<br/><br/>
 
-                            비록 다른 직종이지만 요식업과 영업직 외에 여러 직종에서 풍부한 사회경험으로 힘든 일에도 
-                            즐거운 마음으로 일하는 법을 배우고 사람들과 화합하는 법을 배웠습니다.
-                            이 배움을 통해 어떠한 일이라도 '나는 잘 해낼 수 있다'라는 믿음을 가지고 있습니다.<br/><br/>
+                            요식업과 영업직에서 풍부한 사회 경험으로 고되고 어려운 일에도 
+                            즐거운 마음으로 일하는 법과 사람들과 화합하는 법을 배웠습니다.
+                            이 경험을 통해 어떠한 일이라도 '나는 잘 해낼 수 있다'라는 믿음을 가지고 있습니다.<br/><br/>
                             
-                            남들보다 늦게 시작한 만큼 개발이 저의 99%가 되도록 노력하는 주니어개발자가 되겠습니다.
+                            개발이 일이 저의 99%가 되도록 노력하는 주니어 개발자가 되겠습니다.
                         </p>
                     </div>
                 </div>
@@ -76,36 +80,37 @@ const Main = () => {
                 <li>
                     <h3>BARON 테일러샵</h3>
                     <img src='https://rlaqja9199.github.io/profile99/images/baron1.png' alt='바론 홈페이지 사진' />
-                    <p className='language'>사용언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
-                    <p>설명: 기존의 테일러샵 홈페이지들의 촌스러운 디자인을 동적이고 고급스럽게 디자인 해보았습니다. </p>
-                    <p>작업인원: 1명</p>
-                    <p>관리자계정: admin / 1234</p>
+                    <p className='language'>사용 언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
+                    <p>설명: 기존의 테일러샵 홈페이지들의 촌스러운 디자인을 동적이고 고급스럽게 디자인 하였습니다. </p>
+                    <p>작업 인원: 1명</p>
+                    <p>관리자 계정: admin/1234</p>
                     <div className='linkUrl' onClick={()=>window.open('https://tailorshop-9t22.vercel.app/', '_blank')}>바로가기</div>
                 </li>
                 <li>
                     <h3>REHOME 가구</h3>
                     <img src='https://rlaqja9199.github.io/profile99/images/rehome.png' alt='리홈 홈페이지 사진' />
-                    <p className='language'>사용언어: <span>PHP</span><span>JavaScript</span><span>Css</span><span>MySQL</span> </p>
-                    <p>설명: 보기쉽고 직관적인 디자인의 가구샵 홈페이지를 만들어보았습니다. </p>
-                    <p>작업인원: 3명</p>
-                    <p>관리자계정: admin / 1111</p>
+                    <p className='language'>사용 언어: <span>PHP</span><span>JavaScript</span><span>Css</span><span>MySQL</span> </p>
+                    <p>설명: 보기쉽고 직관적인 디자인의 가구샵 홈페이지를 디자인 하였습니다. </p>
+                    <p>작업인원: 2명</p>
+                    <p>관리자계정: admin/1111</p>
                     <div className='linkUrl' onClick={()=>window.open('http://cathkid.dothome.co.kr/ReHome/index.php', '_blank')}>바로가기</div>
                 </li>
                 <li>
                     <h3>W WEDDING 드레스샵</h3>
                     <img src='https://rlaqja9199.github.io/profile99/images/wwedding.png' alt='w웨딩 홈페이지 사진' />
-                    <p className='language'>사용언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
-                    <p>설명: 외국사이트들의 디자인을 참고하여 드레스샵 홈페이지를 만들어보았습니다. </p>
-                    <p>작업인원: 2명</p>
-                    <p>관리자계정: admin / admin1234</p>
+                    <p className='language'>사용 언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
+                    <p>설명: 외국사이트들의 디자인을 참고하여 드레스샵 홈페이지를 디자인 하였습니다. </p>
+                    <p>작업 인원: 2명</p>
+                    <p>관리자 계정: admin/admin1234</p>
                     <div className='linkUrl' onClick={()=>window.open('https://dress-shop-client-lvwb.vercel.app/', '_blank')}>바로가기</div>
                 </li>
                 <li>
                     <h3>썸네일메이커</h3>
                     <img src='https://rlaqja9199.github.io/profile99/images/thumbnailmaker.png' alt='썸네일메이커 홈페이지 사진' />
-                    <p className='language'>사용언어: <span>React</span><span>Css</span></p>
-                    <p>설명: 다른 개발자의 썸네일메이커를 리액트를 사용하여 클론해보았습니다. </p>
-                    <p>작업인원: 1명</p>
+                    <p className='language'>사용 언어: <span>React</span><span>Css</span></p>
+                    <p>설명: 다른 개발자의 썸네일메이커를 리액트를 사용하여 클론코딩 하였습니다. </p>
+                    <p>작업 인원: 1명</p>
+                    <p></p>
                     <p></p>
                     <div className='linkUrl' onClick={()=>window.open('https://rlaqja9199.github.io/thumbnail-maker/', '_blank')}>바로가기</div>
                 </li>

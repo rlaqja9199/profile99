@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import { SiHtml5, SiCss3, SiJavascript, SiPhp, SiReact, SiRedux, SiNodedotjs, SiGithub  } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
@@ -9,15 +9,15 @@ const Main = () => {
     const location = useSelector((state)=>state.location);
     const dispatch = useDispatch();
     
+    //스크롤 이벤트
     useEffect(()=>{
-        const mainDom = document.querySelector('#main');
         const pageUp = ()=>{dispatch({type: 'PAGEUP'})}
         const pageDown = ()=>{dispatch({type: 'PAGEDOWN'})}
         let timer;
-        console.log(window.innerWidth)
 
         const wheelHandler = (e)=>{
             e.preventDefault();
+            console.log(e.deltaY)
             if(!timer){
                 timer = setTimeout(() => {
                     timer = null;
@@ -33,11 +33,11 @@ const Main = () => {
                 }, 200);
             }
         };
-        if(window.innerHeight>768){
-            mainDom.addEventListener('wheel', wheelHandler);
+        if(window.innerWidth>768){
+            window.addEventListener('wheel', wheelHandler);
         }
         return ()=>{
-            mainDom.removeEventListener('wheel', wheelHandler);
+            window.removeEventListener('wheel', wheelHandler);
         }
     })
   return (

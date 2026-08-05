@@ -6,7 +6,7 @@ const projects = [
     name: 'BARON', type: 'Tailor Shop', image: `${process.env.PUBLIC_URL}/images/baron1.webp`,
     ko: { description: '테일러숍 특유의 클래식한 분위기는 남기고, 옷과 서비스가 먼저 눈에 들어오도록 만든 쇼핑몰입니다.', role: '개인 프로젝트 · 기획 / 디자인 / 개발', outcome: '상품 탐색과 관리자 기능을 한 서비스 안에 구현' },
     en: { description: 'An online tailor shop that keeps a classic mood while putting its products and services first.', role: 'Solo project · Planning / Design / Development', outcome: 'Built product browsing and admin features as one connected service' },
-    stack: ['React', 'Node.js', 'MySQL', 'CSS'], url: 'https://tailorshop-9t22.vercel.app/'
+    stack: ['React', 'Node.js', 'MySQL', 'CSS'], url: 'https://rlaqja9199.github.io/tailorshop/'
   },
   {
     name: 'REHOME', type: 'Furniture Shop', image: `${process.env.PUBLIC_URL}/images/rehome.webp`,

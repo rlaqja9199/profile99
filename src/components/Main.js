@@ -1,217 +1,93 @@
-import React, { useEffect} from 'react'
-import {useSelector, useDispatch} from 'react-redux';
-import { SiHtml5, SiCss3, SiJavascript, SiPhp, SiReact, SiRedux, SiNodedotjs, SiGithub  } from "react-icons/si";
-import { GrMysql } from "react-icons/gr";
-import { ImMobile } from "react-icons/im";
-import { MdOutlineEmail } from "react-icons/md";
+import React from 'react';
+import { FiArrowUpRight, FiMail, FiExternalLink } from 'react-icons/fi';
 
-const Main = () => {
-    const location = useSelector((state)=>state.location);
-    const dispatch = useDispatch();
-    
-    //스크롤 이벤트
-    useEffect(()=>{
-        const pageUp = ()=>{dispatch({type: 'PAGEUP'})}
-        const pageDown = ()=>{dispatch({type: 'PAGEDOWN'})}
-        let timer;
+const projects = [
+  {
+    name: 'BARON', type: 'Tailor Shop', image: `${process.env.PUBLIC_URL}/images/baron1.webp`,
+    ko: { description: '테일러숍 특유의 클래식한 분위기는 남기고, 옷과 서비스가 먼저 눈에 들어오도록 만든 쇼핑몰입니다.', role: '개인 프로젝트 · 기획 / 디자인 / 개발', outcome: '상품 탐색과 관리자 기능을 한 서비스 안에 구현' },
+    en: { description: 'An online tailor shop that keeps a classic mood while putting its products and services first.', role: 'Solo project · Planning / Design / Development', outcome: 'Built product browsing and admin features as one connected service' },
+    stack: ['React', 'Node.js', 'MySQL', 'CSS'], url: 'https://tailorshop-9t22.vercel.app/'
+  },
+  {
+    name: 'REHOME', type: 'Furniture Shop', image: `${process.env.PUBLIC_URL}/images/rehome.webp`,
+    ko: { description: '복잡하게 꾸미기보다 가구를 편하게 둘러볼 수 있는 화면을 만드는 데 집중했습니다.', role: '2인 팀 · 프론트엔드 / UI', outcome: '상품을 찾기 쉬운 카테고리와 화면 흐름 구성' },
+    en: { description: 'A furniture shop focused on making products easy and comfortable to browse.', role: 'Team of 2 · Frontend / UI', outcome: 'Created clear categories and a simple product browsing flow' },
+    stack: ['PHP', 'JavaScript', 'MySQL', 'CSS'], url: 'http://cathkid.dothome.co.kr/ReHome/index.php'
+  },
+  {
+    name: 'W WEDDING', type: 'Dress Shop', image: `${process.env.PUBLIC_URL}/images/wwedding.webp`,
+    ko: { description: '웨딩드레스가 돋보이는 여백과 이미지 구성을 고민하며 만든 쇼핑몰입니다.', role: '2인 팀 · 프론트엔드 / 디자인', outcome: '상품 화면과 관리자 기능을 함께 구현' },
+    en: { description: 'A wedding dress shop designed around generous space and image-led product presentation.', role: 'Team of 2 · Frontend / Design', outcome: 'Built the storefront and its supporting admin features' },
+    stack: ['React', 'Node.js', 'MySQL', 'CSS'], url: 'https://dress-shop-client-lvwb.vercel.app/'
+  },
+  {
+    name: 'THUMBNAIL MAKER', type: 'Creative Tool', image: `${process.env.PUBLIC_URL}/images/thumbnailmaker.webp`,
+    ko: { description: '글자와 이미지를 바꿔가며 썸네일을 빠르게 만들어볼 수 있는 작은 편집 도구입니다.', role: '개인 프로젝트 · 프론트엔드', outcome: '수정한 내용이 바로 보이는 편집 화면 구현' },
+    en: { description: 'A small editing tool for quickly creating thumbnails by combining text and images.', role: 'Solo project · Frontend', outcome: 'Created an editor with immediate visual feedback' },
+    stack: ['React', 'JavaScript', 'CSS'], url: 'https://rlaqja9199.github.io/thumbnail-maker/'
+  }
+];
 
-        const wheelHandler = (e)=>{
-            e.preventDefault();
-            console.log(e.deltaY)
-            if(!timer){
-                timer = setTimeout(() => {
-                    timer = null;
-                    if(e.deltaY>0){
-                        if(location>-300){
-                            pageUp();
-                        }
-                    }else if(e.deltaY<0){
-                        if(location<0){
-                            pageDown();
-                        }
-                    }
-                }, 200);
-            }
-        };
-        if(window.innerWidth>768){
-            window.addEventListener('wheel', wheelHandler);
-        }
-        return ()=>{
-            window.removeEventListener('wheel', wheelHandler);
-        }
-    })
-  return (
-    <div id='main' style={{top:`${location}vh`}}>
-        <div id='introduction'>
-            <div className='inner'>
-                <h2>INTRODUCTION</h2>
-                <div id='introductionWrap'>
-                    <div id='introductionLeft'>
-                            <img src='https://rlaqja9199.github.io/profile99/images/beom.jpg' alt='범9199의 이미지' />
-                        <div>
-                            <h3>Beom9199</h3>
-                            <p>사용자의 즐거움을 추구하는</p>
-                            <p><span> 프론트엔드 개발자 김범</span>입니다. </p>
-                        </div>
-                    </div>
-                    <div id='introductionRight'>
-                        <h3>긍정의 에너지로 끝없이 도전하는 김범입니다.</h3>
-                        {/* <p>
-                            요식업계에서 오랜 시간 일을 해왔지만 반복된 작업으로 제자리에 머물러 있는 기분이었습니다.
-                            더 늦기전에 전문성을 가지고 발전할 수 있는 일을 찾아 공부해보자는 생각으로 고민하던 중
-                            어릴적부터 가지고 있던 개발자의 꿈을 국비 지원 사업을 통해 도전할 수 있었습니다.
-                            적지 않은 나이임에도 이직을 결심할 수 있었던 것은 매사를 긍정적인 가능성을 바라보는 힘과
-                            꼭 하고 싶었던 일이기에 시작이 어려울 뿐 과정은 힘들어도 이겨낼 수 있다는 믿음이 있었기에
-                            적지않은 나이임에도 개발자에 도전 할 수 있었습니다.<br/><br/>
+const content = {
+  ko: {
+    hero: '막연한 아이디어라도 괜찮습니다. 필요한 모습을 함께 정리하고, 직접 써볼 수 있는 제품으로 만듭니다.',
+    viewWork: '프로젝트 보기', aboutLink: '저에 대해 알아보기', mapLabel: '제품 개발 역량 다이어그램',
+    workNote: '기존 포트폴리오에서 이어온 작업들', openSite: '사이트 열기', projectImage: '프로젝트 화면',
+    aboutNote: '아이디어를 실제 제품으로 옮기는 사람', aboutTitle: ['필요하다고', '생각한 것을', '함께 만듭니다.'],
+    about: [
+      '안녕하세요, 김범입니다. 머릿속에만 있던 아이디어가 실제 화면에서 움직이는 순간을 좋아합니다.',
+      '원하는 것이 아직 정확한 문장으로 정리되지 않아도 괜찮습니다. 이야기를 나누며 꼭 필요한 부분을 찾고, 먼저 써볼 수 있는 모습으로 빠르게 옮깁니다.',
+      '화면만 그럴듯하게 만드는 데서 끝내지 않습니다. 프론트엔드부터 서버, 데이터, AI, 배포까지 필요한 부분을 이어 붙여 실제로 쓸 수 있는 제품을 만듭니다.',
+      '혼자 답을 정해두기보다 함께 만들고, 써보고, 고치면서 더 나은 답을 찾아갑니다.'
+    ],
+    processNote: '생각에서 출시까지', process: [['DISCOVER','무엇이 필요한지 함께 정리합니다.'],['DESIGN','쓰기 편한 흐름과 화면을 그립니다.'],['BUILD','눈앞에서 움직이는 제품으로 만듭니다.'],['SHIP','직접 써보고 더 나은 모습으로 고칩니다.']],
+    capabilityNote: '앞으로 함께 만들 때 사용할 기술', capabilities: [
+      ['01','PRODUCT','Figma · UX Flow · Design System','만들기 전에 무엇이 꼭 필요한지부터 정리합니다.'],
+      ['02','FRONTEND','Next.js · React · TypeScript · Tailwind CSS','화면 크기에 상관없이 빠르고 편하게 쓸 수 있는 웹을 만듭니다.'],
+      ['03','BACKEND','Node.js · PostgreSQL · Prisma · REST API','서비스가 실제로 움직이는 데 필요한 데이터와 기능을 연결합니다.'],
+      ['04','AI & DATA','OpenAI API · RAG · Supabase · Vector Search','AI가 보여주기용에 그치지 않고 실제 일을 덜어주도록 연결합니다.'],
+      ['05','DELIVERY','Vercel · Docker · GitHub Actions · Monitoring','만든 뒤에도 안정적으로 쓰고 고칠 수 있도록 배포와 운영을 챙깁니다.']
+    ],
+    contact: '아직 정리되지 않은 아이디어라도 편하게 보내주세요.', backTop: '맨 위로 ↑'
+  },
+  en: {
+    hero: 'A rough idea is enough. We can shape what you need together and turn it into something you can actually use.',
+    viewWork: 'VIEW PROJECTS', aboutLink: 'MORE ABOUT ME', mapLabel: 'Product development capabilities diagram',
+    workNote: 'Projects carried over from my original portfolio', openSite: 'Open website', projectImage: 'project screen',
+    aboutNote: 'Turning ideas into working products', aboutTitle: ['I help make', 'what you need', 'actually happen.'],
+    about: [
+      "Hi, I'm Kim Beom. I enjoy the moment when an idea that lived only in someone's head starts moving on a real screen.",
+      "You don't need to have everything figured out. We can talk through the idea, find what truly matters, and quickly turn it into something you can try.",
+      "I don't stop at a polished interface. I connect the frontend, server, data, AI, and deployment needed to make the product genuinely useful.",
+      'Instead of pretending to know the perfect answer from the start, I prefer to build, test, and improve it together.'
+    ],
+    processNote: 'From first thought to launch', process: [['DISCOVER','We clarify what the product really needs.'],['DESIGN','I map a clear and comfortable experience.'],['BUILD','The idea becomes a working product.'],['SHIP','We try it, learn, and make it better.']],
+    capabilityNote: 'The toolkit I recommend for building together', capabilities: [
+      ['01','PRODUCT','Figma · UX Flow · Design System','We decide what matters before writing code.'],
+      ['02','FRONTEND','Next.js · React · TypeScript · Tailwind CSS','Fast, responsive interfaces that feel good on every screen.'],
+      ['03','BACKEND','Node.js · PostgreSQL · Prisma · REST API','The data and services needed to make the product work.'],
+      ['04','AI & DATA','OpenAI API · RAG · Supabase · Vector Search','Practical AI features that save effort instead of just looking impressive.'],
+      ['05','DELIVERY','Vercel · Docker · GitHub Actions · Monitoring','Reliable deployment and a setup that stays easy to improve.']
+    ],
+    contact: "Send me the idea even if it isn't fully formed yet.", backTop: 'BACK TO TOP ↑'
+  }
+};
 
-                            요식업과 영업직에서 풍부한 사회 경험으로 고되고 어려운 일에도 
-                            즐거운 마음으로 일하는 법과 사람들과 화합하는 법을 배웠습니다.
-                            이 경험을 통해 어떠한 일이라도 '나는 잘 해낼 수 있다'라는 믿음을 가지고 있습니다.<br/><br/>
-                            
-                            개발이 일이 저의 99%가 되도록 노력하는 주니어 개발자가 되겠습니다.
-                        </p> */}
-                        <p>
-                        진로를 고민할 학창 시절, 어릴 적부터 컴퓨터를 좋아한 저는 컴퓨터공학과로 진학하기를 희망했습니다. 하지만 준비가 부족하여 원하는 대학에 진학할 수 없었고 아버지의 추천으로 건축학을 전공하게 되었습니다. 전혀 새로운 분야였지만 건축, 토목, 실내 디자인 등 다양한 수업을 들으며 흥미를 느꼈고 '지금 내가 할 수 있는 것'에 집중하며 누구보다 성실히 대학 생활을 하였습니다. 그러나 휴학 후 군 복무를 하던 중 아버지가 뇌졸중으로 쓰러져 몸을 가누질 못하고 응급실에 입원하셨다는 청천벽력 같은 소식을 듣게 되었습니다. 그렇게 가계에 도움을 주어야 하는 상황을 맞이한 저는 아쉬움을 뒤로한 채 학업을 포기하고 사회생활을 시작하게 되었습니다.<br/><br/>
+export default function Main({ language }) {
+  const c = content[language];
+  return <main>
+    <section className="hero section-shell" id="top">
+      <div className="hero-copy"><span className="eyebrow">FULL-STACK PRODUCT BUILDER</span><h1>I BUILD PRODUCTS,<br/><em>END TO END.</em></h1><p>{c.hero}</p><div className="hero-actions"><a className="button primary" href="#work">{c.viewWork} <FiArrowUpRight/></a><a className="text-link" href="#about">{c.aboutLink}</a></div></div>
+      <div className="system-map" aria-label={c.mapLabel}><span className="scribble product-note">product<br/>thinking ↘</span><div className="node user">USER<br/>EXPERIENCE</div><div className="connector vertical"/><div className="node-row"><div className="node blue">FRONTEND</div><div className="node green">BACKEND</div><div className="node orange">DATA</div><div className="node violet">AI</div></div><div className="connector vertical lower"/><div className="node deploy">DEPLOYMENT</div><span className="scribble ship-note">→ ship it</span></div>
+    </section>
 
-첫 직장으로 요식업을 접하게 된 이후 오랜 기간동안 요식업계에서 종사하였습니다. 매일 긴 시간 동안 불 앞에서 요리하고 재료 준비를 하며 오픈 준비와 마감을 해야 하는 일이었기에 체력적으로는 어떤 일을 하던 자신 있습니다. 근무 강도가 강한 일이었음에도 즐거운 마음으로 일하는 비결을 터득할 수 있어 항상 즐겁게 일을 했습니다. 또한, 영업 직종에서 근무하며 다양한 경험을 통해 다양한 사람들과 상황을 직면하고 문제를 해결하며 발전해 나갈 수 있었기에 저에겐 굉장히 좋은 공부가 되었다고 생각합니다.<br/><br/>
+    <section className="section-shell work-section" id="work"><div className="section-heading"><span>SELECTED PRODUCTS</span><small>{c.workNote}</small></div><div className="project-grid">{projects.map((p,i)=>{const text=p[language];return <article className="project-card" key={p.name}><a href={p.url} target="_blank" rel="noreferrer" className="project-image" aria-label={`${p.name} ${c.openSite}`}><img src={p.image} alt={`${p.name} ${c.projectImage}`} loading="lazy" decoding="async"/><span>{String(i+1).padStart(2,'0')} <FiExternalLink/></span></a><div className="project-body"><div className="project-title"><h3>{p.name}</h3><span>{p.type}</span></div><p className="project-description">{text.description}</p><dl><div><dt>ROLE</dt><dd>{text.role}</dd></div><div><dt>OUTCOME</dt><dd>{text.outcome}</dd></div><div><dt>STACK</dt><dd className="tags">{p.stack.map(s=><span key={s}>{s}</span>)}</dd></div></dl></div></article>})}</div></section>
 
-짧은 기간 동안 했던 일들까지 많은 일을 해보았지만, 꾸준히 전문성을 가지고 발전하고 싶은 욕심이 생기는 나의 자리를 찾았다는 생각은 들지 않았습니다. 그래서 더 늦기 전에 내게 맞는 것을 찾아 공부해보자는 생각에 여러 가지를 고민해보던 중 학창 시절 다음 카페 활동으로 HTML을 사용하여 글을 쓰던 일, 컴퓨터로 하는 음악 작업과 게임 속에서 무언가 개발해내며 즐거웠던 기억을 떠올리며 개발자의 꿈에 도전하게 되었습니다. 그 중 사용자의 편의성을 추구하고 눈에 보이는 결과물을 만들어낼 수 있는 프론트엔드를 선하게 되었습니다.<br/><br/>
+    <section className="about section-shell" id="about"><div className="section-heading"><span>ABOUT</span><small>{c.aboutNote}</small></div><div className="about-grid"><div><span className="scribble">make it happen.</span><h2>{c.aboutTitle[0]}<br/>{c.aboutTitle[1]}<br/><em>{c.aboutTitle[2]}</em></h2></div><div className="about-copy">{c.about.map(p=><p key={p}>{p}</p>)}</div></div></section>
 
-그린컴퓨터아카데미에서 [스마트 웹&콘텐츠개발] PWA제작 프론트엔드 개발 디지털 인재 양성과정을 수료하며 HTML, CSS, SCSS, Javascript, mySQL, Github, Node.js, React, Redux 등 배우면 배울수록 어렵지만 깊게 파고들고 공부할수록 기술스텍이 쌓여간다는 사실이 굉장히 기분 좋고 즐거운 일이었습니다. 또한 프론트엔드를 배우며 집을 짓는 것처럼 각각의 언어들을 재료 삼아 하나씩 차곡차곡 쌓아올려 그 결과물을 보는 것이 저에겐 매우 큰 즐거움이었습니다. 그리하여 단순히 배움으로 끝나는 것이 아니라 이 기술들을 활용하여 경력을 쌓고 나아가 여러가지 프로젝트들을 주축으로 이끌 수 있는 인재가 되고 싶어 입사를 지원하게 되었습니다.<br/><br/>
-
-개발자는 평생 공부를 해야 한다는 것을 알고 시작하였기에 아직은 발돋움을 하는 단계이지만 개인 역량 개발을 소홀히 하지 않고 차근차근 채워 나갈 것입니다. 앞으로 새로운 직장에서 경력을 쌓아가면서 여러 어려움과 문제들을 만나겠지만, 이 또한 모두 극복하고 해결할 수 있는 일들이라고 생각합니다. 모든 것들에는 배울 점이 있다고 생각하기에 항상 긍정적이고 단단한 마음으로 저와 제가 일하는 회사가 성장할 수 있도록 노력하겠습니다.<br/><br/>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id='portfolio'>
-            <h2>PORTFOLIO</h2>
-            <ul>
-                <li>
-                    <h3>BARON 테일러샵</h3>
-                    <img src='https://rlaqja9199.github.io/profile99/images/baron1.png' alt='바론 홈페이지 사진' />
-                    <p className='language'>사용 언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
-                    <p>설명: 기존의 테일러샵 홈페이지들의 촌스러운 디자인을 동적이고 고급스럽게 디자인 하였습니다. </p>
-                    <p>작업 인원: 1명</p>
-                    <p>관리자 계정: admin/1234</p>
-                    <div className='linkUrl' onClick={()=>window.open('https://tailorshop-9t22.vercel.app/', '_blank')}>바로가기</div>
-                </li>
-                <li>
-                    <h3>REHOME 가구</h3>
-                    <img src='https://rlaqja9199.github.io/profile99/images/rehome.png' alt='리홈 홈페이지 사진' />
-                    <p className='language'>사용 언어: <span>PHP</span><span>JavaScript</span><span>Css</span><span>MySQL</span> </p>
-                    <p>설명: 보기쉽고 직관적인 디자인의 가구샵 홈페이지를 디자인 하였습니다. </p>
-                    <p>작업인원: 2명</p>
-                    <p>관리자계정: admin/1111</p>
-                    <div className='linkUrl' onClick={()=>window.open('http://cathkid.dothome.co.kr/ReHome/index.php', '_blank')}>바로가기</div>
-                </li>
-                <li>
-                    <h3>W WEDDING 드레스샵</h3>
-                    <img src='https://rlaqja9199.github.io/profile99/images/wwedding.png' alt='w웨딩 홈페이지 사진' />
-                    <p className='language'>사용 언어: <span>React</span><span>Node.js</span><span>Css</span><span>MySQL</span> </p>
-                    <p>설명: 외국사이트들의 디자인을 참고하여 드레스샵 홈페이지를 디자인 하였습니다. </p>
-                    <p>작업 인원: 2명</p>
-                    <p>관리자 계정: admin/admin1234</p>
-                    <div className='linkUrl' onClick={()=>window.open('https://dress-shop-client-lvwb.vercel.app/', '_blank')}>바로가기</div>
-                </li>
-                <li>
-                    <h3>썸네일메이커</h3>
-                    <img src='https://rlaqja9199.github.io/profile99/images/thumbnailmaker.png' alt='썸네일메이커 홈페이지 사진' />
-                    <p className='language'>사용 언어: <span>React</span><span>Css</span></p>
-                    <p>설명: 다른 개발자의 썸네일메이커를 리액트를 사용하여 클론코딩 하였습니다. </p>
-                    <p>작업 인원: 1명</p>
-                    <p></p>
-                    <p></p>
-                    <div className='linkUrl' onClick={()=>window.open('https://rlaqja9199.github.io/thumbnail-maker/', '_blank')}>바로가기</div>
-                </li>
-            </ul>
-        </div>
-        <div id='skills'>
-            <div className='inner'>
-                <h2>SKILLS</h2>
-                <ul id='skillsList'>
-                    <li>
-                        <SiHtml5 style={{color: '#e44d26'}} />
-                        <h3>HTML</h3>
-                        <p>웹표준을 준수한 마크업 가능</p>
-                    </li>
-                    <li>
-                        <SiCss3 style={{color: '#264de4'}} />
-                        <h3>CSS</h3>
-                        <p>CSS를 활용한 웹페이지 스타일링 가능</p>
-                    </li>
-                    <li>
-                        <SiJavascript style={{color: '#f7df1e'}} />
-                        <h3>JavaScript</h3>
-                        <p>JS를 활용한 동적인 웹사이트 제작가능</p>
-                    </li>
-                    <li>
-                        <SiReact style={{color: '#61dafb'}} />
-                        <h3>React</h3>
-                        <p>리액트를 활용한 웹앱 제작가능</p>
-                    </li>
-                    <li>
-                        <SiRedux style={{color: '#7248b6'}} />
-                        <h3>Redux</h3>
-                        <p>리덕스를 활용하여 상태관리 가능</p>
-                    </li>
-                    <li>
-                        <GrMysql style={{color: '#005c85'}} />
-                        <h3>MySQL</h3>
-                        <p>DB를 활용하는 간단한 쿼리문 작성 가능</p>
-                    </li>
-                    <li>
-                        <SiPhp style={{color: '#777bb3'}} />
-                        <h3>Php</h3>
-                        <p>php를 활용한 홈페이지 제작 가능</p>
-                    </li>
-                    <li>
-                        <SiNodedotjs style={{color: '#68a063'}} />
-                        <h3>Node.js</h3>
-                        <p>간단한 로컬서버 제작 가능</p>
-                    </li>
-                    <li>
-                        <SiGithub />
-                        <h3>Github</h3>
-                        <p>팀 및 개인프로젝트 깃허브 활용가능</p>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-        <div id='contact'>
-            <h2>CONTACT</h2>
-            <ul>
-                <li>
-                    <div style={{fontSize:'50px'}}>
-                        <ImMobile />
-                    </div>
-                    <h4>Mobile</h4>
-                    <p>010-2428-5429</p>
-                </li>
-                <li>
-                    <div style={{fontSize:'50px'}}>
-                        <MdOutlineEmail />
-                    </div>
-                    <h4>E-Mail</h4>
-                    <p>rlaqja9199@naver.com</p>
-                </li>
-                <li  onClick={()=>window.open('https://velog.io/@rlaqja9199', '_blank')}>
-                    <div><img src='https://rlaqja9199.github.io/profile99/images/velog.png' alt='벨로그로고' style={{width:'100%', borderRadius:'8px'}} /></div>
-                    <h4>Velog</h4>
-                    <p>https://velog.io/@rlaqja9199</p>
-                </li>
-                <li  onClick={()=>window.open('https://github.com/rlaqja9199', '_blank')}>
-                    <div style={{fontSize:'50px'}}><SiGithub /></div>
-                    <h4>Github</h4>
-                    <p>https://github.com/rlaqja9199</p>
-                </li>
-            </ul>
-            <address>code by Beom9199</address>
-        </div>
-    </div>
-  )
+    <section className="process section-shell"><div className="section-heading"><span>HOW I BUILD</span><small>{c.processNote}</small></div><ol>{c.process.map(([title,description],i)=><li key={title}><span>{i+1}</span><b>{title}</b><p>{description}</p></li>)}</ol></section>
+    <section className="capabilities section-shell" id="capabilities"><div className="section-heading"><span>CAPABILITIES</span><small>{c.capabilityNote}</small></div><div className="capability-grid">{c.capabilities.map(([n,title,stack,description])=><article key={title}><span>{n}</span><h3>{title}</h3><b>{stack}</b><p>{description}</p></article>)}</div></section>
+    <section className="contact section-shell" id="contact"><div><span className="scribble">next project?</span><h2>HAVE AN IDEA?<br/><em>LET'S MAKE IT REAL.</em></h2><p>{c.contact}</p></div><div className="contact-links"><span className="contact-label">EMAIL</span><a href="mailto:rlaqja9199@naver.com"><FiMail/> rlaqja9199@naver.com</a></div></section>
+    <footer className="section-shell"><span>© 2026 KIM BEOM</span><span>FULL-STACK PRODUCT BUILDER</span><a href="#top">{c.backTop}</a></footer>
+  </main>;
 }
-
-export default Main

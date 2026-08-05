@@ -1,22 +1,36 @@
-import React from 'react'
-import {useDispatch} from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
-const Header = () => {
-  const dispatch = useDispatch();
-  const innerWidth = window.innerWidth
+const navItems = [
+  ['work', 'WORK'],
+  ['about', 'ABOUT'],
+  ['capabilities', 'CAPABILITIES'],
+  ['contact', 'CONTACT'],
+];
+
+export default function Header({ language, onLanguageChange }) {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const close = () => setOpen(false);
+    window.addEventListener('resize', close);
+    return () => window.removeEventListener('resize', close);
+  }, []);
+
   return (
-    <div id='header'>
-        <div id='headerWrap' className='inner'>
-            <h1 onClick={()=>{dispatch({type: 'INTRODUCTION'})}}>Beom9199</h1>
-            <ul>
-                <li onClick={()=>{dispatch({type: 'INTRODUCTION'})}}>{innerWidth>768? 'INTRODUCTION' : '소개'}</li>
-                <li onClick={()=>{dispatch({type: 'PORTFOLIO'})}}>{innerWidth>768? 'PORTFOLIO' : '작업'}</li>
-                <li onClick={()=>{dispatch({type: 'SKILLS'})}}>{innerWidth>768? 'SKILLS' : '기술'}</li>
-                <li onClick={()=>{dispatch({type: 'CONTACT'})}}>{innerWidth>768? 'CONTACT' : '연락처'}</li>
-            </ul>
+    <header className="site-header">
+      <a className="wordmark" href="#top" aria-label="Kim Beom portfolio home">KIM BEOM</a>
+      <nav id="site-nav" className={open ? 'nav-open' : ''} aria-label="Main navigation">
+        {navItems.map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}
+      </nav>
+      <div className="header-actions">
+        <div className="language-switch" aria-label="Choose language">
+          <button type="button" aria-pressed={language === 'ko'} onClick={() => onLanguageChange('ko')}>KO</button>
+          <button type="button" aria-pressed={language === 'en'} onClick={() => onLanguageChange('en')}>EN</button>
         </div>
-    </div>
-  )
+        <button className="menu-button" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>
+          {open ? 'CLOSE' : 'MENU'}
+        </button>
+      </div>
+    </header>
+  );
 }
-
-export default Header

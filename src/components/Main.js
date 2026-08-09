@@ -12,13 +12,13 @@ const projects = [
     name: 'REHOME', type: 'Furniture Shop', image: `${process.env.PUBLIC_URL}/images/rehome.webp`,
     ko: { description: '복잡하게 꾸미기보다 가구를 편하게 둘러볼 수 있는 화면을 만드는 데 집중했습니다.', role: '2인 팀 · 프론트엔드 / UI', outcome: '상품을 찾기 쉬운 카테고리와 화면 흐름 구성' },
     en: { description: 'A furniture shop focused on making products easy and comfortable to browse.', role: 'Team of 2 · Frontend / UI', outcome: 'Created clear categories and a simple product browsing flow' },
-    stack: ['PHP', 'JavaScript', 'MySQL', 'CSS'], url: 'http://cathkid.dothome.co.kr/ReHome/index.php'
+    stack: ['PHP', 'JavaScript', 'MySQL', 'CSS'], url: 'https://rlaqja9199.github.io/ReHome/'
   },
   {
     name: 'W WEDDING', type: 'Dress Shop', image: `${process.env.PUBLIC_URL}/images/wwedding.webp`,
     ko: { description: '웨딩드레스가 돋보이는 여백과 이미지 구성을 고민하며 만든 쇼핑몰입니다.', role: '2인 팀 · 프론트엔드 / 디자인', outcome: '상품 화면과 관리자 기능을 함께 구현' },
     en: { description: 'A wedding dress shop designed around generous space and image-led product presentation.', role: 'Team of 2 · Frontend / Design', outcome: 'Built the storefront and its supporting admin features' },
-    stack: ['React', 'Node.js', 'MySQL', 'CSS'], url: 'https://dress-shop-client-lvwb.vercel.app/'
+    stack: ['React', 'Node.js', 'MySQL', 'CSS'], url: 'https://rlaqja9199.github.io/dress_shopt_client/'
   },
   {
     name: 'THUMBNAIL MAKER', type: 'Creative Tool', image: `${process.env.PUBLIC_URL}/images/thumbnailmaker.webp`,
